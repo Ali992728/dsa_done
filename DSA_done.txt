@@ -1,0 +1,31 @@
+1.Array -> 
+
+2.Hash Table -> 
+
+3.Two Pointer ->
+
+4.Sliding Window ->
+
+5.Stack ->
+
+6.Binary Search -> 
+
+7.Linked List ->
+
+8.Tree ->
+
+9.Heap(P.Q) ->
+
+10.Backtracking ->
+
+11.Graph ->
+
+12.DP ->
+
+13.Greedy ->
+
+14.Math -> 1
+
+15.Bit Manipulation ->
+
+16.String -> 1
