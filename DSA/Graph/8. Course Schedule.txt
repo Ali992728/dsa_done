@@ -1,40 +1,55 @@
-bool isCycleDFS(int src,vector<bool> &vis,vector<bool> &recPath,vector<vector<int>> &prerequisites) {
-        vis[src]=true;
-        recPath[src]=true;
+private:
+    bool isCycleDFS(int src, vector<bool> &vis, vector<bool> &recPath,
+                    vector<vector<int>> &adj) {
 
-        for(int i=0;i<prerequisites.size();i++) {
-            int v=prerequisites[i][0];
-            int u=prerequisites[i][1];
-            
-            if(u==src) {
-                if(!vis[v]) {
-                    if(isCycleDFS(v,vis,recPath,prerequisites)) {
-                        return true;
-                    }
+        vis[src] = true;
+        recPath[src] = true;
+
+        for(int v : adj[src]) {
+
+            if(!vis[v]) {
+                if(isCycleDFS(v, vis, recPath, adj)) {
+                    return true;
                 }
-                else if(recPath[v]) {
-                        return true;
-                    }
+            }
+            else if(recPath[v]) {
+                return true;
             }
         }
-        recPath[src]=false;
+
+        recPath[src] = false;
         return false;
     }
+
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<bool> vis(numCourses,false);
-        vector<bool> recPath(numCourses,false);
+
+        vector<vector<int>> adj(numCourses);
+
+        // Build graph
+        for(int i=0;i<prerequisites.size();i++) {
+            int v = prerequisites[i][0];
+            int u = prerequisites[i][1];
+
+            adj[u].push_back(v);
+        }
+
+        vector<bool> vis(numCourses, false);
+        vector<bool> recPath(numCourses, false);
 
         for(int i=0;i<numCourses;i++) {
+
             if(!vis[i]) {
-                if(isCycleDFS(i,vis,recPath,prerequisites)) {
+
+                if(isCycleDFS(i, vis, recPath, adj)) {
                     return false;
                 }
             }
         }
+
         return true;
     }
+};
 
 
-
-vid-> https://www.youtube.com/watch?v=37cJ38HadM4&t=713s
+vid-> https://www.youtube.com/watch?v=37cJ38HadM4&t=716s
