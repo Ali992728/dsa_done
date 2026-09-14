@@ -22,3 +22,6 @@ int trap(vector<int>& height) {
 
         return ans;
     }
+
+
+vid -> https://www.youtube.com/watch?v=UHHp8USwx4M (approach 1) 
