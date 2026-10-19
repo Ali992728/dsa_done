@@ -1,0 +1,13 @@
+int hammingWeight(int n) {
+        int cnt=0;
+        for(int i=31;i>=0;i--) {
+            if((n>>i)&1 == 1) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+
+
+vid -> https://www.youtube.com/watch?v=YOyajw-L0pc&t=328s   (only till 1st approach)
